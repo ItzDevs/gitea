@@ -19,7 +19,7 @@ services:
       - type: bind
         source: ./conf/app.ini
         target: /data/gitea/conf/app.ini
-      - conf/public:/data/gitea/public
+      - ./conf/public:/data/gitea/public
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
 
