@@ -1,4 +1,4 @@
-APP_NAME = Gitea: Git with a cup of tea
+APP_NAME = Gitea
 RUN_MODE = prod
 RUN_USER = git
 
@@ -15,10 +15,10 @@ TEMP_PATH = /data/gitea/uploads
 
 [server]
 APP_DATA_PATH    = /data/gitea
-DOMAIN           = git.amy.mov
-SSH_DOMAIN       = amy.mov
+DOMAIN           = git.itzdevs.dev
+SSH_DOMAIN       = itzdevs.dev
 HTTP_PORT        = 3000
-ROOT_URL         = https://git.amy.mov/
+ROOT_URL         = https://git.itzdevs.dev
 DISABLE_SSH      = false
 SSH_PORT         = 22
 SSH_LISTEN_PORT  = 2202
@@ -28,7 +28,7 @@ OFFLINE_MODE     = false
 
 [database]
 DB_TYPE  = postgres
-HOST     = database-gitea:5432
+HOST     = pg_gitea:5432
 NAME     = gitea
 USER     = gitea
 PASSWD   = gitea
