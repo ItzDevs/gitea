@@ -1,0 +1,34 @@
+version: 3
+
+services:
+  server:
+    image: gitea/gita:1.20.5
+    container_name: gitea
+    depends_on:
+      - database
+    environment: 
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__security__SECRET_KEY=${GITEA_SECRET_KEY:?GITEA_SECRET_KEY not set}      
+      - GITEA__security__INTERNAL_TOKEN=${GITEA_INTERNAL_TOKEN:?GITEA_INTERNAL_TOKEN not set}     
+      - GITEA__server__LFS_JWT_SECRET=${GITEA_LFS_JWT_SECRET:?GITEA_LFS_JWT_SECRET not set}
+    restart: unless-stopped
+    volumes:
+      - ./gitea-p:/data
+      - type: bind
+        source: ./conf/app.ini
+        target: /data/gitea/conf/app.ini
+      - conf/public:/data/gitea/public
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+
+  database:
+    image: postgres:14-alpine
+    container_name: pg_gitea
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=gitea
+      - POSTGRES_USER=gitea
+      - POSTGRES_PASSWORD=gitea
+    volumes:
+      -./postgres-p/db:/var/lib/postgresql/data
