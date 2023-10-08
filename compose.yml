@@ -32,4 +32,4 @@ services:
       - POSTGRES_USER=gitea
       - POSTGRES_PASSWORD=gitea
     volumes:
-      -./postgres-p/db:/var/lib/postgresql/data
+      - ./postgres-p/db:/var/lib/postgresql/data
