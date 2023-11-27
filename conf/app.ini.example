@@ -51,9 +51,10 @@ REPOSITORY_AVATAR_UPLOAD_PATH = /data/gitea/repo-avatars
 PATH = /data/gitea/attachments
 
 [log]
-MODE      = console
-LEVEL     = info
-ROOT_PATH = /data/gitea/log
+MODE               = console
+LEVEL              = info
+logger.router.MODE = console
+ROOT_PATH          = /data/gitea/log
 
 [security]
 INSTALL_LOCK                  = true
